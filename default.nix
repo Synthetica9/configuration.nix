@@ -213,15 +213,11 @@ let
     vlc
   ] ++ browsers ++ photography;
 
-  customPkgs = [
-    ( import ./pywal.nix )
-  ];
 in {
 
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./xcursor.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   xcursor.theme = "Numix";
@@ -478,8 +474,7 @@ in {
       desktopPkgs
       ++ graphicalPkgs
       ++ terminalPkgs
-      ++ typesettingPkgs
-      ++ customPkgs;
+      ++ typesettingPkgs;
   };
 
   nixpkgs.config = {
