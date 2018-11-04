@@ -2,6 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+hostname:
+
 { config, pkgs, lib, ... }:
 
 # https://gist.github.com/joepie91/ce9267788fdcb37f5941be5a04fcdd0f#installing-a-few-packages-from-master
@@ -244,29 +246,13 @@ in {
   # Use the systemd-boot EFI boot loader.
   # boot.extraKernelModules = [ ];
 
-  networking.hostName = "AquaRing"; # Define your hostname.
+  networking.hostName = hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
   # networking.extraHosts = builtins.concatStringsSep "\n"  [
   #   "151.101.1.140 i.redd.it"
   #   "151.101.1.140 redd.it"
   # ];
-
-  /* networking.extraHosts = builtins.readFile (builtins.fetchurl "https://hosts-file.net/download/hosts.txt"); */
-
-  /* networking.extraHosts = (builtins.concatStringsSep "\n") (lib.mapAttrsToList (name: ip: ip + " " + name) {
-      "i.redd.it"="151.101.1.140";
-      "redd.it"="151.101.1.140";
-      "savannah.gnu.org"="208.118.235.79";
-      "git.savannah.gnu.org"="208.118.235.201";
-      #TODO: Switch these around?
-      # 151.101.1.140" = ["i.redd.it" "redd.it"]
-    }); */
-    # + "\n" +
-    # builtins.trace (pkgs.fetchurl {
-    #   url = https://hosts-file.net/download/hosts.zip;
-    #   # unpack = true;
-    # }) "";
 
   # Select internationalisation properties.
   i18n = {
