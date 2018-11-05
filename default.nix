@@ -9,6 +9,14 @@ hostname: hw-config:
 # https://gist.github.com/joepie91/ce9267788fdcb37f5941be5a04fcdd0f#installing-a-few-packages-from-master
 
 let
+  machine = {
+    AquaRing = {
+      arch = "broadwell";
+    };
+    Will-O-Wisp = {
+      arch = "sandybridge";
+    };
+  }.${hostname};
   nixpkgsRemote = remote: rev: import (builtins.fetchTarball "https://github.com/${remote}/Nixpkgs/archive/${rev}.tar.gz") {
     config = config.nixpkgs.config;
   };
@@ -42,7 +50,7 @@ let
 in
 let
   optimiseForThisHost = pkg:
-    overrideCFlags pkg [ "-O3" "-march=broadwell" "-fPIC" ];
+    overrideCFlags pkg [ "-O3" "-march=${machine.arch}" "-fPIC" ];
 
   withDebuggingCompiled = pkg:
     overrideCFlags pkg [ "-DDEBUG" ];
