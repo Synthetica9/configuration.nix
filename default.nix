@@ -192,8 +192,8 @@ let
   graphicalPkgs = with pkgs; [
     dropbox
     libreoffice-fix.libreoffice
-    atom
     blender
+    vscode
     gparted
     keepassxc
     qt510.optimised.lxqt.qterminal
@@ -460,8 +460,8 @@ in {
     variables = {
       "QT_SCALE_FACTOR" = "1";
       "XCURSOR_THEME" = "numix";
-      "EDITOR" = "atom --wait";
-      "VISUAL" = "atom --wait";
+      "EDITOR" = "code --wait";
+      "VISUAL" = "code --wait";
       # "XDG_DATA_DIRS" = builtins.concatStringsSep ":" [
       #   "/run/opengl-driver/share"
       #   "/run/opengl-driver-32/share"
