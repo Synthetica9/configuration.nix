@@ -124,6 +124,7 @@ let
     pygments
     spotipy
     scapy
+    autopep8
   ];
 
   py2Pkgs = with pkgs.python2Packages; [
