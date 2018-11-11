@@ -30,6 +30,8 @@ let
     devel = "synthetica9";
   };
 
+  hieRemote = import (builtins.fetchTarball "https://github.com/domenkozar/hie-nix/archive/master.tar.gz") {};
+
   master = builtins.trace
     "Warning: master is impure. Using this might have unexpected consequences!"
     (remotes.upstream "master");
@@ -120,6 +122,7 @@ let
     /* ghc-mod */
     haskell-fix.myGhcMod
     stylish-haskell
+    hieRemote.hies
   ];
 
   pyPkgs = with pkgs.python3Packages; [
@@ -638,27 +641,21 @@ in {
     mode = "444";
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+  nix = {
+    binaryCaches = [
+      "https://cache.nixos.org/"
+      "https://hie-nix.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "hie-nix.cachix.org-1:EjBSHzF6VmDnzqlldGXbi0RM3HdjfTU3yDRi9Pd0jTY="
+    ];
+    trustedUsers = [ "root" "synthetica" ];
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
   };
-
-  nix.useSandbox = true;
-  # nix.package = pkgs.nixUnstable; # Switch to nix beta, if and when needed
-
-  /* nix.buildMachines = [ {
-    hostName = "hydropump_build";
-    system = "x86_64-linux";
-    maxJobs = 8;
-    supportedFeatures = [ ];
-    mandatoryFeatures = [ ];
-  }] ; */
-  nix.distributedBuilds = false;
-  # optional, useful when the builder has a faster internet connection than yours
-  nix.extraOptions = ''
-    builders-use-substitutes = true
-  '';
 
   # https://github.com/dlukes/dotfiles/blob/master/configuration.nix#L323
   fonts = {
