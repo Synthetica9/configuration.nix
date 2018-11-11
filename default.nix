@@ -16,7 +16,11 @@ let
     Will-O-Wisp = {
       arch = "sandybridge";
     };
+    # Not a real machine, but used in local.nix
+    testing = {};
   }.${hostname};
+  isTesting = hostname == "testing";
+
   nixpkgsRemote = remote: rev: import (builtins.fetchTarball "https://github.com/${remote}/Nixpkgs/archive/${rev}.tar.gz") {
     config = config.nixpkgs.config;
   };
@@ -547,8 +551,9 @@ in {
       };
 
       # Optimization:
-      optimised = lib.mapAttrsRecursiveCond (as : as ? "type" -> as.type != "derivation")
-        (path: value: builtins.trace "Optimising ${lib.concatStringsSep "." path}" optimiseForThisHost value) pkgs;
+      optimised = if isTesting then pkgs else
+        lib.mapAttrsRecursiveCond (as : as ? "type" -> as.type != "derivation")
+          (path: value: builtins.trace "Optimising ${lib.concatStringsSep "." path}" optimiseForThisHost value) pkgs;
       /* optimised = pkgs; */
     };
 
