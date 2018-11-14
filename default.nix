@@ -67,6 +67,7 @@ let
     expect
     file
     flock
+    fzf
     git
     gnumake
     gnupg
