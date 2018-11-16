@@ -12,9 +12,11 @@ let
   machine = {
     AquaRing = {
       arch = "broadwell";
+      cores = 4;
     };
     Will-O-Wisp = {
       arch = "sandybridge";
+      cores = 4;
     };
     # Not a real machine, but used in local.nix
     testing = {};
@@ -479,6 +481,7 @@ in {
       "XCURSOR_THEME" = "numix";
       "EDITOR" = "code --wait";
       "VISUAL" = "code --wait";
+      "GHCRTS" = "-N${toString machine.cores or 1}";
       # "XDG_DATA_DIRS" = builtins.concatStringsSep ":" [
       #   "/run/opengl-driver/share"
       #   "/run/opengl-driver-32/share"
