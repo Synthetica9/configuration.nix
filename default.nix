@@ -67,6 +67,7 @@ let
     bat
     bind
     binutils
+    cachix
     circleci-cli
     cloc
     entr
