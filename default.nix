@@ -440,6 +440,7 @@ in {
       uid = 1000;
       extraGroups = [
         "wheel" "networkmanager"
+        "nm-openvpn"
         "tty" "dialout" # For arduino
         "davfs2"
         "docker"
