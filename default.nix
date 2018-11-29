@@ -76,6 +76,7 @@ let
     flock
     fzf
     git
+    git-lfs
     gnumake
     gnupg
     lm_sensors
