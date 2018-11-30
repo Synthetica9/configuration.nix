@@ -1,0 +1,3 @@
+{
+  fileSystems."/" = {device = "/dev/null";};
+}
