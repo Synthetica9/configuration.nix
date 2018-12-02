@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  boot = let kernelVersion = pkgs.linuxPackages_latest; in {
+  boot = let kernelVersion = pkgs.linuxPackages; in {
     tmpOnTmpfs = true;
     kernelPackages = kernelVersion;
     extraModulePackages = with kernelVersion; [
