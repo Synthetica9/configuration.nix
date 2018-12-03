@@ -11,7 +11,7 @@
     blender
     gparted
     keepassxc
-    optimised.lxqt.qterminal
+    konsole-fix.konsole
     steam-fix.steam
     steam-fix.steam-run-native
     syncthing
