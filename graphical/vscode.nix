@@ -7,7 +7,7 @@
     python3Packages.autopep8
     haskellPackages.stylish-haskell
   ];
-  security.polkit.enable = true;
+  # security.polkit.enable = true;
   environment.variables = {
     "EDITOR" = "code --wait";
     "VISUAL" = "code --wait";
