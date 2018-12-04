@@ -5,7 +5,7 @@
     ./overrides.nix
     ./remotes.nix
     ./buildFlags.nix
-    ./arches.nix
+    ./options.nix
     ./nix.nix
     ./networking.nix
     ./kernel.nix

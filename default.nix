@@ -7,36 +7,19 @@ hostname: hw-config:
 { config, pkgs, lib, ... }:
 
 let
-  machines = {
-    AquaRing = {
-      arch = "broadwell";
-      def = ./AquaRing.nix;
-    };
-    Will-O-Wisp = {
-      arch = "sandybridge";
-      def = ./Will-O-Wisp.nix;
-    };
-    HydroPump = {
-      arch = "ivybridge";
-      def = ./HydroPump.nix;
-    };
+  machines = import ./machines.nix // {
     # Not a real machine, but used in build_support
-    testing = {
-      def = ./testing.nix;
-      arch = null;
-    };
+    testing = ./testing.nix;
   };
 
   machine = machines.${hostname};
 in {
-  inherit (machine) arch;
-
   networking.hostName = hostname;
 
   imports =
     [
       hw-config
-      machine.def
+      machine
       ./users.nix
     ];
 

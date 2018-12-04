@@ -1,4 +1,4 @@
-.PHONY: test_build activate
+.PHONY: test switch build-vm
 
 build_support = $(abspath ./build_support)
 activate_path = $(build_support)/activate.nix
