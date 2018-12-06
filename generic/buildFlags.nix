@@ -6,7 +6,7 @@ let
     let
       newflags = pkgs.lib.foldl' (acc: x: "${acc} ${x}") "" flags;
       oldflags = if (pkgs.lib.hasAttr "NIX_CFLAGS_COMPILE" old)
-        then "${old.NIX_CFLAGS_COMPILE}"
+        then old.NIX_CFLAGS_COMPILE
         else "";
     in
     {

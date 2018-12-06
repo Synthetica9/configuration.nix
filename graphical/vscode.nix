@@ -6,10 +6,12 @@
     vscode
     python3Packages.autopep8
     haskellPackages.stylish-haskell
-  ];
+  ] ++ (with haskellPackages; [
+    hlint
+  ]);
   # security.polkit.enable = true;
-  environment.variables = {
-    "EDITOR" = "code --wait";
-    "VISUAL" = "code --wait";
+  environment.variables = rec {
+    EDITOR = "code --wait";
+    VISUAL = EDITOR;
   };
 }

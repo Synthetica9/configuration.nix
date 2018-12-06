@@ -4,7 +4,7 @@
 
 hostname: hw-config:
 
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 let
   machines = import ./machines.nix // {

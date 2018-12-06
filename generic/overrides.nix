@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 {
   nixpkgs.config.packageOverrides = pkgs: rec {
     xfce = pkgs.xfce // {

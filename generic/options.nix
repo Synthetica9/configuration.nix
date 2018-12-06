@@ -3,7 +3,7 @@
 with lib;
 
 let
-  mergeNullOption = loc: defs:
+  mergeNullOption = _loc: defs:
     if length defs != 1 then null
     else (head defs).value;
 in
