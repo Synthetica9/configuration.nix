@@ -23,6 +23,6 @@ in
     # Optimization:
     optimised = if config.arch == null then pkgs else
       lib.mapAttrsRecursiveCond (as : as ? "type" -> as.type != "derivation")
-        (path: value: builtins.trace "Optimising ${lib.concatStringsSep "." path}" optimiseForThisHost value) pkgs;
+        (path: builtins.trace "Optimising ${lib.concatStringsSep "." path}" optimiseForThisHost) pkgs;
   };
 }
