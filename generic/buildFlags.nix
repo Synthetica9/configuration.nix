@@ -1,7 +1,7 @@
 {pkgs, options, lib, config, ...}:
 
 let
-  overrideCFlags = pkg: flags:
+  overrideCFlags = flags: pkg:
     pkgs.lib.overrideDerivation pkg (old:
     let
       newflags = pkgs.lib.foldl' (acc: x: "${acc} ${x}") "" flags;
@@ -12,11 +12,11 @@ let
     {
       NIX_CFLAGS_COMPILE = "${oldflags} ${newflags}";
     });
-  optimiseForThisHost = pkg:
-    overrideCFlags pkg [ "-O3" "-march=${options.arch.value}" "-fPIC" ];
+  optimiseForThisHost =
+    overrideCFlags [ "-O3" "-march=${options.arch.value}" "-fPIC" ];
 
-  withDebuggingCompiled = pkg:
-    overrideCFlags pkg [ "-DDEBUG" ];
+  withDebuggingCompiled =
+    overrideCFlags [ "-DDEBUG" ];
 in
 {
   nixpkgs.config.packageOverrides = pkgs: rec {
