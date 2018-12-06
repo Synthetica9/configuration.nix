@@ -19,7 +19,6 @@ in with remotes;
     master = builtins.trace
       "Warning: master is impure. Using this might have unexpected consequences!"
       (upstream "master");
-    haskell-fix     = upstream "69fa2d6bfba";
     libreoffice-fix = upstream "81f5c2698a8";
     steam-fix = devel "steamRuntimeRefactor";
     konsole-fix = devel "konsole-keyboard-fix";
