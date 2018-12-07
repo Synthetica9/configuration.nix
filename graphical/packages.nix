@@ -19,7 +19,6 @@
     xfce.thunar
     xfce.thunar_volman
     spotify
-    system-config-printer
     arduino
     vlc
     firefox
