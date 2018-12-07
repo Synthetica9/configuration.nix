@@ -23,7 +23,7 @@ def getMachines():
 
 def buildMachineByHostName(hostname):
     print(f"Building: {hostname}")
-    configFile = f'{BUILD_SUPORT}/build-{hostname}.nix'
+    configFile = os.path.join(f'{BUILD_SUPORT}', f'build-{hostname}.nix')
     with open(configFile, 'w') as f:
         f.write(f'import ../. {json.dumps(hostname)} ./no-hardware.nix')
     buildCommand = getBuildCommand(configFile)
