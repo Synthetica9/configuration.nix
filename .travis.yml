@@ -1,0 +1,4 @@
+language: nix
+script:
+  - nix-env -iA python3
+  - make
