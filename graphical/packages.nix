@@ -19,7 +19,6 @@
     xfce.thunar
     xfce.thunar_volman
     spotify
-    arduino
     vlc
     firefox
     qbittorrent
