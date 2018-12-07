@@ -1,4 +1,4 @@
 language: nix
 script:
-  - nix-env -iA python3
+  - nix-env -iA nixpkgs.python3
   - make
