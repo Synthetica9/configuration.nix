@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     dropbox
-    libreoffice-fix.libreoffice
+    libreoffice-fresh
     blender
     gparted
     keepassxc
