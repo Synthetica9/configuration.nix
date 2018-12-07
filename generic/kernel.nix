@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  boot = let kernelVersion = pkgs.linuxPackages; in {
+  boot = let kernelPackages = pkgs.linuxPackages; in {
+    inherit kernelPackages;
     tmpOnTmpfs = true;
-    kernelPackages = kernelVersion;
-    extraModulePackages = with kernelVersion; [
+    extraModulePackages = with kernelPackages; [
       acpi_call
       # exfat-nofuse # Tue 17 Apr 2018 14:59:37 CEST Currently broken, check again with next version
     ];

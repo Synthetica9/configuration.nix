@@ -6,6 +6,9 @@ test_path = $(build_support)/test.nix
 
 NIXOS_REBUILD = nixos-rebuild --option tarball-ttl 0 --show-trace
 
+build_all: *.nix Makefile build_support/build_all_machines.py
+	./build_support/build_all_machines.py
+
 test: *.nix Makefile
 	@echo $(local_path)
 	env NIXOS_CONFIG=$(test_path) $(NIXOS_REBUILD) build
