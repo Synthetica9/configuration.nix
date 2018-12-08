@@ -6,7 +6,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    dropbox
     libreoffice-fresh
     blender
     gparted
