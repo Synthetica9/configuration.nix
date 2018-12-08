@@ -9,6 +9,14 @@
       guiSupport = false;
     };
 
-    python3WithSomePackages = pkgs.python3.withPackages (ps: with ps; [ scapy ipython hypothesis pyyaml pandas numpy matplotlib ]) ;
+    python3WithSomePackages = pkgs.python3.withPackages (ps: with ps; [
+      scapy
+      ipython
+      hypothesis
+      pyyaml
+      # pandas
+      numpy
+      matplotlib
+    ]) ;
   };
 }
