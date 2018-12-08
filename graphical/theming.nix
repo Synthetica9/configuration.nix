@@ -46,7 +46,11 @@
       font-awesome-ttf
     ];
     fontconfig = {
-      defaultFonts.sansSerif = ["Ubuntu"];
+      defaultFonts = {
+        sansSerif = ["Ubuntu"];
+        monospace = ["Fira Code"];
+      };
+
       ultimate.enable = true;
     };
   };
