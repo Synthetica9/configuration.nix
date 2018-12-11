@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  boot = let kernelPackages = pkgs.linuxPackages; in {
+  boot = let kernelPackages = pkgs.nixos-current.linuxPackages; in {
     inherit kernelPackages;
     tmpOnTmpfs = true;
     extraModulePackages = with kernelPackages; [

@@ -13,7 +13,7 @@
     konsole-fix.konsole
     steam-fix.steam
     steam-fix.steam-run-native
-    virtualbox
+    nixos-current.virtualbox
     xfce.thunar
     xfce.thunar_volman
     spotify
