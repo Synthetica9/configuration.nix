@@ -9,3 +9,4 @@ script:
   - df -h
   - if [ -n "$UPDATE_CHANNELS" ]; then make update; fi
   - make
+sudo: true
