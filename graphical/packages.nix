@@ -13,7 +13,6 @@
     konsole-fix.konsole
     steam-fix.steam
     steam-fix.steam-run-native
-    syncthing
     virtualbox
     xfce.thunar
     xfce.thunar_volman
