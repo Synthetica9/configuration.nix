@@ -10,5 +10,6 @@
     ./networking.nix
     ./kernel.nix
     ./boot.nix
+    ../channels
   ];
 }

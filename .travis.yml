@@ -1,5 +1,10 @@
 language: nix
+matrix:
+  include:
+  - name: 'Run with updates'
+    env: UPDATE_CHANNEL=true
+  - name: 'Run without channel updates'
 script:
   - df -h
-  - nix-channel --add https://nixos.org/channels/nixos-unstable-small nixpkgs
+  - if [ -n "$UPDATE_CHANNELS" ]; then; make update; fi
   - make

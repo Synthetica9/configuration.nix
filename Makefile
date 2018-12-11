@@ -1,4 +1,4 @@
-.PHONY: test switch build-vm build_all
+.PHONY: test switch build-vm build_all update
 
 build_support = $(abspath ./build_support)
 activate_path = $(build_support)/activate.nix
@@ -18,3 +18,6 @@ switch: *.nix Makefile
 
 build-vm: *.nix Makefile
 	env NIXOS_CONFIG=$(activate_path) $(NIXOS_REBUILD) build-vm
+
+update: *.nix Makefile
+	./channels/update.sh
