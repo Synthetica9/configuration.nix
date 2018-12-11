@@ -3,4 +3,4 @@
 
 set -euxo pipefail
 
-curl "https://api.github.com/repos/nixos/nixpkgs-channels/branches" | tee channels/defs.json
+curl "https://api.github.com/repos/nixos/nixpkgs-channels/branches" -v | tee channels/defs.json
