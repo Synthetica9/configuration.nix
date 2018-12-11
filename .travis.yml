@@ -5,7 +5,7 @@ matrix:
     env: UPDATE_CHANNELS=true
   - name: 'Run without channel updates'
 script:
-  - stty cols 100
+  - stty cols 120
   - df -h
   - if [ -n "$UPDATE_CHANNELS" ]; then make update; fi
   - make
