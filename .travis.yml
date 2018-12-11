@@ -2,7 +2,7 @@ language: nix
 matrix:
   include:
   - name: 'Run with updates'
-    env: UPDATE_CHANNEL=true
+    env: UPDATE_CHANNELS=true
   - name: 'Run without channel updates'
 script:
   - df -h
