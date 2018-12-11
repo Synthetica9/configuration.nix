@@ -36,6 +36,6 @@
     driSupport32Bit = true;
   };
 
-  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 }
