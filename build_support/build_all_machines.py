@@ -31,6 +31,7 @@ def buildMachineByHostName(hostname):
 
 
 def main():
+    del os.environ['TMPDIR']
     machines = getMachines()
     for hostname in machines:
         buildMachineByHostName(hostname)
