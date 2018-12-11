@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
   programs.wireshark = {
     package = pkgs.wireshark-gtk;
@@ -6,7 +6,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    libreoffice-fresh
+    pkgs.channels."nixos-${config.system.stateVersion}".libreoffice-fresh
     blender
     gparted
     keepassxc
