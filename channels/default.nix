@@ -16,6 +16,9 @@ let
   ) channels';
 in
 {
-  nixpkgs.config.packageOverrides = { inherit channels channels'; } // channels;
+  nixpkgs.config.packageOverrides = {
+    inherit channels channels';
+    nixos-current = channels."nixos-${config.system.stateVersion}";
+  } // channels;
   nix.nixPath = [ "nixpkgs=${channels'.nixos-unstable-small}" ];
 }

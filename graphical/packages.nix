@@ -6,7 +6,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pkgs.channels."nixos-${config.system.stateVersion}".libreoffice-fresh
+    pkgs.nixos-current.libreoffice-fresh
     blender
     gparted
     keepassxc
