@@ -6,5 +6,5 @@ matrix:
   - name: 'Run without channel updates'
 script:
   - df -h
-  - if [ -n "$UPDATE_CHANNELS" ]; then; make update; fi
+  - if [ -n "$UPDATE_CHANNELS" ]; then make update; fi
   - make
