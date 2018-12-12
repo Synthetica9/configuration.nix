@@ -27,14 +27,18 @@ def buildMachineByHostName(hostname):
     with open(configFile, 'w') as f:
         f.write(f'import ../. {json.dumps(hostname)} ./no-hardware.nix')
     buildCommand = getBuildCommand(configFile)
-    subprocess.check_call(buildCommand)
+    return subprocess.call(buildCommand)
 
 
 def main():
     del os.environ['TMPDIR']
     machines = getMachines()
-    for hostname in machines:
-        buildMachineByHostName(hostname)
+    failed = {hostname for hostname in machines if buildMachineByHostName(hostname) != 0}
+
+    print(f'{len(failed)} failed builds.')
+    if failed:
+        print(f"{failed} failed")
+        exit(1)
 
 
 if __name__ == '__main__':
