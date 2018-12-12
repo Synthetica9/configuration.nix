@@ -5,8 +5,8 @@ let
   channels' = lib.listToAttrs (map (val: {
     name = val.name;
     value = builtins.fetchTarball {
-      url = "https://github.com/nixos/Nixpkgs/archive/${val.commit.sha}.tar.gz";
-      name = lib.debug.traceVal "${val.name}-${val.commit.sha}";
+      url = "https://github.com/nixos/Nixpkgs/archive/${val.commit}.tar.gz";
+      name = lib.debug.traceVal "${val.name}-${val.commit}";
     };
   }) defs);
   channels = lib.mapAttrs (key: val:
