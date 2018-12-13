@@ -92,20 +92,20 @@
   {
     "commit": "4f3446f29910d21eb0fb942bd03091b089cdad63",
     "name": "nixos-18.09",
-    "date": "2018-12-12"
+    "date": "2018-12-11"
   },
   {
-    "commit": "25d0880528dcf0f79221b4f16ce64245dc068a84",
+    "commit": "5e425e22a750bceb0f003cd1c5b652b63be0dac2",
     "name": "nixos-18.09-small",
-    "date": "2018-11-21"
+    "date": "2018-12-13"
   },
   {
-    "commit": "47f008676fe3b77b9c8edda54db621a0dc16dd8e",
+    "commit": "562b7a7702cf502fa9ac57a888aadf2c55275379",
     "name": "nixos-unstable",
     "date": "2018-12-13"
   },
   {
-    "commit": "f1b814a879cda2550bdf9324ca88642dbc5c01d2",
+    "commit": "3d4cb55b718cfab054e86e864c90220d040d1935",
     "name": "nixos-unstable-small",
     "date": "2018-12-13"
   },

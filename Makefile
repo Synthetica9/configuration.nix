@@ -20,4 +20,4 @@ build-vm: *.nix Makefile
 	env NIXOS_CONFIG=$(activate_path) $(NIXOS_REBUILD) build-vm
 
 update: *.nix Makefile
-	./channels/update.sh
+	./channels/update.py
