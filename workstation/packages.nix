@@ -29,10 +29,13 @@
     file
     flock
     fzf
+    ghc
     git
     git-lfs
     gnumake
     gnupg
+    j
+    julia
     jq
     lm_sensors
     loc
