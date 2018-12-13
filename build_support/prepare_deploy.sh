@@ -3,6 +3,8 @@
 
 set -euxo pipefail
 
+DEPLOY=""
+
 # Check if we weren't broken before
 if make
 then
@@ -24,4 +26,4 @@ else
 fi
 
 # Fail if we shouldn't deploy!
-[ -n "${DEPLOY+}" ] && echo "DEPLOYING! 👍" || (echo "Not deploying! 👎" && false)
+[ -n "$DEPLOY" ] && echo "DEPLOYING! 👍" || (echo "Not deploying! 👎" && false)
