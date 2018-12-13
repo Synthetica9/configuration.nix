@@ -16,6 +16,9 @@ fi
 # Possible future improvement: bisect to last working channel.
 make update
 
+# Show the differences with the old output
+git diff
+
 if make
 then
   # The upgrades possibly _fixed_ our builds
