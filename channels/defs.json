@@ -76,15 +76,15 @@
     "name": "nixos-18.09"
   },
   {
-    "commit": "d15b9bd9902a2f766c6fbafd9db915d097799d25",
+    "commit": "25d0880528dcf0f79221b4f16ce64245dc068a84",
     "name": "nixos-18.09-small"
   },
   {
-    "commit": "ad3e9191d16722ea3eec32f4cd689eea730f39f6",
+    "commit": "47f008676fe3b77b9c8edda54db621a0dc16dd8e",
     "name": "nixos-unstable"
   },
   {
-    "commit": "c2f6ab16a9828be1a1b4fbe99102f8e8a3c13a43",
+    "commit": "f1b814a879cda2550bdf9324ca88642dbc5c01d2",
     "name": "nixos-unstable-small"
   },
   {
@@ -96,11 +96,11 @@
     "name": "nixpkgs-18.03-darwin"
   },
   {
-    "commit": "d15b9bd9902a2f766c6fbafd9db915d097799d25",
+    "commit": "5e425e22a750bceb0f003cd1c5b652b63be0dac2",
     "name": "nixpkgs-18.09-darwin"
   },
   {
-    "commit": "70488665fae8a5d3270390b6d8676c059ac4964a",
+    "commit": "61c3169a0e17d789c566d5b241bfe309ce4a6275",
     "name": "nixpkgs-unstable"
   }
 ]
