@@ -13,5 +13,5 @@ do
   LINE=$($CURL "$BASEURL/$CHAN/latest")
   COMMIT=$(awk '{ print $1 }' <<< $LINE)
   DATE=$(awk '{ print strftime("%F", $2); }' <<< $LINE )
-  jq -n '{ commit: $commit, name: $name, date: $date }' --arg commit $COMMIT --arg name $CHAN --arg date $DATE
-done | jq -s | tee ./channels/defs.json
+  jq --null-input '{ commit: $commit, name: $name, date: $date }' --arg commit $COMMIT --arg name $CHAN --arg date $DATE
+done | jq --slurp | tee ./channels/defs.json
