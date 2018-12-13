@@ -3,7 +3,7 @@
 
 set -euxo pipefail
 
-CURL="curl -v"
+CURL="curl"
 
 BASEURL="https://channels.nix.gsc.io/"
 CHANS=$($CURL "$BASEURL" | rg 'href="(nix[\w\d\-\.)]+)/"' --replace '$1' --only-matching)
