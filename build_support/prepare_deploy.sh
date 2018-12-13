@@ -24,4 +24,4 @@ else
 fi
 
 # Fail if we shouldn't deploy!
-[ -n "$DEPLOY" ] && echo "DEPLOYING! 👍" || echo "Not deploying! 👎"
+[ -n "${DEPLOY+}" ] && echo "DEPLOYING! 👍" || (echo "Not deploying! 👎" && false)
