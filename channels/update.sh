@@ -1,4 +1,4 @@
-e#!/usr/bin/env nix-shell
+#!/usr/bin/env nix-shell
 #! nix-shell -i bash -p bash curl ripgrep jq
 
 set -euxo pipefail
