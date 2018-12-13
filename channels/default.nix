@@ -6,7 +6,7 @@ let
     name = val.name;
     value = builtins.fetchTarball {
       url = "https://github.com/nixos/Nixpkgs/archive/${val.commit}.tar.gz";
-      name = lib.debug.traceVal "${val.name}-${val.commit}";
+      name = lib.debug.traceVal "${val.name}-${val.date}-${lib.substring 0 7 val.commit}";
     };
   }) defs);
   channels = lib.mapAttrs (key: val:

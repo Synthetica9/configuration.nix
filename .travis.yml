@@ -1,8 +1,8 @@
 language: nix
 before_script:
-  - stty cols 120
+- stty cols 120
 script:
-  - ./build_support/prepare_deploy.sh
+- "./build_support/prepare_deploy.sh"
 sudo: true
 deploy:
   provider: pages
