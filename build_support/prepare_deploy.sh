@@ -3,7 +3,7 @@
 
 set -euxo pipefail
 
-DEPLOY=""
+UPDATE_PATH=":/channels/defs.json"
 
 # Check if we weren't broken before
 if make
@@ -17,7 +17,7 @@ fi
 make update
 
 # Show the differences with the old output
-git diff
+git --no-pager diff -- "$UPDATE_PATH"
 
 if make
 then
@@ -25,8 +25,16 @@ then
   DEPLOY=true
 else
   # The upgrades broke our build, but the original build might still be valid.
-  git checkout -- :/channels/defs.json
+  git checkout -- "$UPDATE_PATH"
+fi
+
+if [ "${TRAVIS_BRANCH-}" = "deploy" ]
+then
+  # If we are on the deploy branch, there _MUST_ be changes, otherwise we
+  # shouldn't deploy (otherwise we trigger an infinite build loop. Yes, been
+  # there, done that, 👕).
+  ! git diff --exit-code --quiet -- "$UPDATE_PATH" || unset DEPLOY
 fi
 
 # Fail if we shouldn't deploy!
-[ -n "$DEPLOY" ] && echo "DEPLOYING! 👍" || (echo "Not deploying! 👎" && false)
+([ -n "${DEPLOY-}" ] && echo "DEPLOYING! 👍") || (echo "Not deploying! 👎" && false)
