@@ -90,24 +90,24 @@
     "date": "2018-12-08"
   },
   {
-    "commit": "4f3446f29910d21eb0fb942bd03091b089cdad63",
+    "commit": "7e88992a8c7b2de0bcb89182d8686b27bd93e46a",
     "name": "nixos-18.09",
-    "date": "2018-12-11"
+    "date": "2018-12-14"
   },
   {
-    "commit": "5e425e22a750bceb0f003cd1c5b652b63be0dac2",
+    "commit": "7e88992a8c7b2de0bcb89182d8686b27bd93e46a",
     "name": "nixos-18.09-small",
-    "date": "2018-12-13"
+    "date": "2018-12-14"
   },
   {
-    "commit": "562b7a7702cf502fa9ac57a888aadf2c55275379",
+    "commit": "44b02b52ea6a49674f124f50009299f192ed78bb",
     "name": "nixos-unstable",
-    "date": "2018-12-13"
+    "date": "2018-12-14"
   },
   {
-    "commit": "3d4cb55b718cfab054e86e864c90220d040d1935",
+    "commit": "8dd2fb2ffba87c8a7fd53915aace851bbc654e63",
     "name": "nixos-unstable-small",
-    "date": "2018-12-13"
+    "date": "2018-12-14"
   },
   {
     "commit": "24a7883c2349af5076107dbbb615be09d6025a95",
@@ -115,14 +115,14 @@
     "date": "2018-09-29"
   },
   {
-    "commit": "b551f89e2568a0ee444a39972943dbadd488063d",
+    "commit": "d3698e03fb7cfebecb92b7c86c335b4cdbcf2ae0",
     "name": "nixpkgs-18.03-darwin",
-    "date": "2018-12-08"
+    "date": "2018-12-13"
   },
   {
-    "commit": "5e425e22a750bceb0f003cd1c5b652b63be0dac2",
+    "commit": "7e88992a8c7b2de0bcb89182d8686b27bd93e46a",
     "name": "nixpkgs-18.09-darwin",
-    "date": "2018-12-13"
+    "date": "2018-12-14"
   },
   {
     "commit": "61c3169a0e17d789c566d5b241bfe309ce4a6275",
