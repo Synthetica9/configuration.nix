@@ -9,8 +9,12 @@ function hasUpdates {
   ! git diff --exit-code --quiet -- "$UPDATE_PATH"
 }
 
+function onDeploy {
+  [ "${TRAVIS_BRANCH-}" = "deploy" ]
+}
+
 # Check if we weren't broken before
-if [ "${TRAVIS_BRANCH-}" != "deploy" ] && make
+if ! onDeploy && make
 then
   # Deploy anyways, even if our upgrades fail.
   DEPLOY=true
@@ -37,7 +41,7 @@ then
   fi
 fi
 
-if [ "${TRAVIS_BRANCH-}" = "deploy" ]
+if onDeploy
 then
   # If we are on the deploy branch, there _MUST_ be changes, otherwise we
   # shouldn't deploy (otherwise we trigger an infinite build loop. Yes, been
