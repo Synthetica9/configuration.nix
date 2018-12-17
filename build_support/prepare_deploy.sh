@@ -42,6 +42,8 @@ then
   fi
 fi
 
+BUILD_SUCCEEDED="${DEPLOY-}"
+
 if onDeploy
 then
   # If we are on the deploy branch, there _MUST_ be changes, otherwise we
@@ -51,6 +53,9 @@ then
   hasUpdates || unset DEPLOY
 fi
 
-# Fail if we shouldn't deploy!
+# Create or remove the deployment file
 ([ -n "${DEPLOY-}" ] && touch $DEPLOY_FILE && echo "DEPLOYING! 👍") || \
-  (echo "Not deploying! 👎" && rm $DEPLOY_FILE)
+  (echo "Not deploying! 👎" && rm $DEPLOY_FILE || true)
+
+# Fail if no builds succeeded
+[ -n "${BUILD_SUCCEDED-}" ]
