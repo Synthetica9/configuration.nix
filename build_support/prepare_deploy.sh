@@ -58,4 +58,4 @@ fi
   (echo "Not deploying! 👎" && rm $DEPLOY_FILE || true)
 
 # Fail if no builds succeeded
-[ -n "${BUILD_SUCCEDED-}" ]
+[ -n "$BUILD_SUCCEEDED" ]
