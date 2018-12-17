@@ -1,4 +1,5 @@
 language: nix
+nix: 2.1.3
 before_script:
 - stty cols 120
 script:
