@@ -4,6 +4,7 @@
 set -euxo pipefail
 
 UPDATE_PATH=":/channels/defs.json"
+DEPLOY_FILE="DEPLOY"
 
 function hasUpdates {
   ! git diff --exit-code --quiet -- "$UPDATE_PATH"
@@ -51,4 +52,5 @@ then
 fi
 
 # Fail if we shouldn't deploy!
-([ -n "${DEPLOY-}" ] && echo "DEPLOYING! 👍") || (echo "Not deploying! 👎" && false)
+([ -n "${DEPLOY-}" ] && touch $DEPLOY_FILE && echo "DEPLOYING! 👍") || \
+  (echo "Not deploying! 👎" && rm $DEPLOY_FILE)
