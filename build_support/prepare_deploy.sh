@@ -15,7 +15,7 @@ function onDeploy {
 }
 
 # Check if we weren't broken before
-if ! onDeploy && make
+if make
 then
   # Deploy anyways, even if our upgrades fail.
   DEPLOY=true
