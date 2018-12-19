@@ -14,11 +14,18 @@ let
       config = config.nixpkgs.config;
     }
   ) channels';
+
+  deployConfig = fetchTarball{
+    url = "https://github.com/synthetica9/configuration.nix/archive/deploy.tar.gz";
+    name = "deploy";
+  };
 in
 {
   nixpkgs.config.packageOverrides = {
     inherit channels channels';
     nixos-current = channels."nixos-${config.system.stateVersion}";
   } // channels;
-  nix.nixPath = [ "nixpkgs=${channels'.nixos-unstable-small}" ];
+  nix.nixPath = [
+    "nixpkgs=${channels'.nixos-unstable-small}"
+    "nixos-config=${deployConfig}/build_support/activate.nix" ];
 }
