@@ -16,6 +16,6 @@ deploy:
       - master
       - deploy
     condition: "-f DEPLOY"
-    skip_cleanup: true
+    skip-cleanup: true
   github_token:
     secure: eA/zWasmjHzIGDWjhizy58qNEBjyLDLJGwOEaLTkbPEDP7Z06bAkkCuqcrCBF8RvjfgbHl6XqgR12kFP5kgxLht0/VGLnGlPQYibbEAO3bQnJwiqBv6HzgGZEIzOA5LIoShCekLKRghIfLRdKBdACFtQm58x8wKiQrF8fKmsvdglAW3wR8WxTST77A1FvWIYzd2fm0D7z4JlPxYph8qvJXItXo/0OQjUkcHRhQ2nt3f4pRyHldWlYdvDRLtC1NnwMCGb/Rc8ZDjn3PKQxe7m3LsxdUnT+SxkkFGQC8UtcxeP6hOTjd0WIQzmTZjplNCy/+Vup/JN/iu4wUmwMtMTBzpq4AUGnC6kj+AXFtb/jqDDK1ySRVv8lpJ3tBfKvSY5DxkOxZkn7FQbA68JG+zXN7o/WxwtxyH7xF4rcwIrzo5rcpJkHoadMNDqEz9b5IRp6gFHAVPGw9CxtvPrYe8lznwkHUpQz4Pn6FZ+HSqSO2MJESP4jVg+fZ0dd5oUu2PA/BQWhd6Xl6cV7djyjsPE5OiYMM8jhRPu1/Y58LNnTi8+NHyVogvmKN6920wa7+ThVVtlCb8fKzPX2udSz9CT4qolpcHU9/6PaPT/4x6gbAFg1fFhuth9BpelITf/hYe7XyyVt1Ec7zw0B5w46lzGB2ovlXyeoK17keBnZKwT6/U=
