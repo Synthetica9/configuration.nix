@@ -20,7 +20,7 @@
     bat
     bind
     binutils
-    cachix
+    cachix-fix.cachix
     circleci-cli
     cloc
     entr
