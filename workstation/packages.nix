@@ -35,7 +35,6 @@
     gnumake
     gnupg
     j
-    julia
     jq
     lm_sensors
     loc
