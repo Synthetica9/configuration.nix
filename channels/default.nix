@@ -11,7 +11,7 @@ let
   }) defs);
   channels = lib.mapAttrs (key: val:
     import val {
-      config = config.nixpkgs.config;
+      inherit (config.nixpkgs) config overlays localSystem crossSystem;
     }
   ) channels';
 
@@ -25,6 +25,7 @@ in
     inherit channels channels';
     nixos-current = channels."nixos-${config.system.stateVersion}";
   } // channels;
+  nixpkgs.pkgs = channels.nixos-unstable-small;
   nix.nixPath = [
     "nixpkgs=${channels'.nixos-unstable-small}"
     "nixos-config=${deployConfig}/build_support/activate.nix" ];
