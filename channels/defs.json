@@ -95,9 +95,9 @@
     "date": "2019-01-23"
   },
   {
-    "commit": "119a93190a86794179e13ec38d51140e953a8ca9",
+    "commit": "23806968dad23611d8c881341d506723b96fc284",
     "name": "nixos-18.09-small",
-    "date": "2019-01-24"
+    "date": "2019-01-30"
   },
   {
     "commit": "bc41317e24317b0f506287f2d5bab00140b9b50e",
@@ -105,9 +105,9 @@
     "date": "2019-01-20"
   },
   {
-    "commit": "ba9d958adfc9c03064dac3d8d5ea648bbbe4d022",
+    "commit": "4a200fbbf0a26c55e5ecb280cf173569bd813197",
     "name": "nixos-unstable-small",
-    "date": "2019-01-25"
+    "date": "2019-01-30"
   },
   {
     "commit": "24a7883c2349af5076107dbbb615be09d6025a95",
