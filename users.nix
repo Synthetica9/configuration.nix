@@ -33,7 +33,6 @@
 
   hardware.opengl = {
     driSupport = true;
-    driSupport32Bit = true;
   };
 
   virtualisation.virtualbox.host.enable = true;
