@@ -38,6 +38,7 @@
     jq
     lm_sensors
     loc
+    micro
     mosh
     ncdu
     nmap
