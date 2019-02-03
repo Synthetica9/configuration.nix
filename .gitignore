@@ -1,0 +1,4 @@
+result-*
+result
+DEPLOY
+build_support/build-*.nix
