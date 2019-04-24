@@ -14,6 +14,8 @@ let
 in with remotes;
 {
   nixpkgs.config.packageOverrides = {
+    # WARNING! Don't name the remote the same as the package you're trying to
+    # install, the package will get overridden
     hieRemote = import (builtins.fetchTarball "https://github.com/domenkozar/hie-nix/archive/master.tar.gz") {};
 
     master = builtins.trace
