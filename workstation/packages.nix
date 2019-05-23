@@ -13,7 +13,7 @@
       enable = true;
     };
     mtr.enable = true;
-    /* sway-beta.enable = true; */
+    sway.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -34,6 +34,7 @@
     git-lfs
     gnumake
     gnupg
+    nixos-current.imgurbash2
     j
     jq
     lm_sensors
@@ -59,6 +60,11 @@
     wget
     python3WithSomePackages
     pandoc
+    pandoc-imagine
+    haskellPackages.pandoc-citeproc
+
+    qemu
+    texlive.combined.scheme-full
   ]
   ++ (with python3Packages; [
     ipython

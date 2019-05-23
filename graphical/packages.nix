@@ -1,7 +1,7 @@
 {pkgs, config, ...}:
 {
   programs.wireshark = {
-    package = pkgs.wireshark-gtk;
+    package = pkgs.wireshark-qt;
     enable = true;
   };
 
@@ -10,7 +10,9 @@
     blender
     gparted
     keepassxc
-    konsole-fix.konsole
+    scribus
+    qt5.qtwayland
+    konsole
     steam-fix.steam
     steam-fix.steam-run-native
     nixos-current.virtualbox
@@ -18,11 +20,15 @@
     xfce.thunar_volman
     spotify
     vlc
-    firefox
+    # latest.firefox-nightly-bin
+    latest.firefox-bin
     qbittorrent
     exiftool
     darktable
     gimp
     inkscape
+    pkgs.nixos-current.octaveFull
+    pkgs.gnuplot
+    zathura
   ];
 }

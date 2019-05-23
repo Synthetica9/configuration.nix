@@ -13,6 +13,8 @@
         "wireshark"
         "fuse" # for sshfs
         "audio"
+        "sway"
+        "video"
       ];
     };
   };
@@ -35,6 +37,6 @@
     driSupport = true;
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = false;
+  virtualisation.docker.enable = false;
 }

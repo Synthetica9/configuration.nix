@@ -9,5 +9,6 @@
     ./desktop.nix
     ./packages.nix
     ./audio.nix
+    ./moz_overlay.nix
   ];
 }

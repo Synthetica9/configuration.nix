@@ -3,7 +3,8 @@
 # VScode and related packages and settings
 {
   environment.systemPackages = with pkgs; [
-    vscode
+    # vscode
+    vscodium
     python3Packages.autopep8
     haskellPackages.stylish-haskell
   ] ++ (with haskellPackages; [

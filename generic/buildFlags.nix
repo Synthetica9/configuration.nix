@@ -2,27 +2,24 @@
 
 let
   overrideCFlags = flags: pkg:
-    pkgs.lib.overrideDerivation pkg (old:
+    lib.overrideDerivation pkg (old:
     let
-      newflags = pkgs.lib.foldl' (acc: x: "${acc} ${x}") "" flags;
-      oldflags = if (pkgs.lib.hasAttr "NIX_CFLAGS_COMPILE" old)
-        then old.NIX_CFLAGS_COMPILE
-        else "";
+      oldflags = old.NIX_CFLAGS_COMPILE or [];
     in
-    {
-      NIX_CFLAGS_COMPILE = "${oldflags} ${newflags}";
+    builtins.trace "Compiling ${old.name} with ${lib.strings.concatStringsSep " " flags}" {
+      NIX_CFLAGS_COMPILE = oldflags ++ flags;
     });
-  optimiseForThisHost =
-    overrideCFlags [ "-O3" "-march=${options.arch.value}" "-fPIC" ];
 
-  withDebuggingCompiled =
-    overrideCFlags [ "-DDEBUG" ];
+  subuniverse = pkgs: f:
+    lib.mapAttrsRecursiveCond (as: as ? "type" -> as.type != "derivation")
+      (_: f) pkgs;
+
+  cFlagSubuniverse = pkgs: flags: subuniverse pkgs (overrideCFlags flags);
 in
 {
-  nixpkgs.config.packageOverrides = pkgs: rec {
+  nixpkgs.config.packageOverrides = pkgs: lib.mapAttrs (_: cFlagSubuniverse pkgs) {
     # Optimization:
-    optimised = if config.arch == null then pkgs else
-      lib.mapAttrsRecursiveCond (as : as ? "type" -> as.type != "derivation")
-        (path: builtins.trace "Optimising ${lib.concatStringsSep "." path}" optimiseForThisHost) pkgs;
+    optimised = [ "-O3" "-fPIC"  ] ++ lib.optional (config.arch != null) "-march=${options.arch.value}";
+    debugged = [ "-DDEBUG" "-fsanitize=address" ];
   };
 }

@@ -4,6 +4,7 @@
   services = {
     xserver = {
       enable = true;
+      autorun = false;
       layout = "us";
       xkbOptions = "eurosign:e, ctrl:swapcaps";
       # Enable touchpad support.
@@ -11,6 +12,7 @@
         enable = true;
         naturalScrolling = true;
       };
+
 
       # displayManager.sddm.enable = true;
       displayManager.lightdm = {
@@ -24,7 +26,7 @@
       desktopManager.xterm.enable = false;
       windowManager.i3 = {
         enable = true;
-        package = pkgs.optimised.i3-gaps;
+        package = pkgs.i3-gaps;
       };
 
       desktopManager.xfce = {
@@ -64,6 +66,8 @@
     };
     gnome3.gvfs.enable=true;
     davfs2.enable=true;
+    tlp.enable=true;
+    printing.enable = true;
   };
 
   systemd.user.services = {
@@ -99,8 +103,10 @@
     gtk-engine-murrine
     gtk_engines
     gvfs
+    # gvfs-samba
     i3-wk-switch
-    i3lock-color
+    swaylock
+    i3status
     kdeFrameworks.networkmanager-qt
     networkmanagerapplet
     notify-desktop
@@ -108,17 +114,22 @@
     compton
     playerctl
     redshift
-    screenkey
-    shutter
     xdotool
-    xfce.xfce4notifyd
+    # xfce.xfce4notifyd
     xfce.xfce4settings
     xfce.xfce4volumed
+    mako
+    wl-clipboard
+    grim
     xorg.xbacklight
     xorg.xrefresh
     xss-lock
     rofi
     xclip
-    wmfocus
+    # wmfocus
   ];
+
+  environment.variables.GIO_EXTRA_MODULES = [ "${pkgs.gvfs}/lib/gio/modules" ];
+
+  programs.light.enable = true;
 }

@@ -22,7 +22,7 @@ in with remotes;
       "Warning: master is impure. Using this might have unexpected consequences!"
       (upstream "master");
     steam-fix = devel "steamRuntimeRefactor";
-    konsole-fix = devel "konsole-keyboard-fix";
     cachix-fix = upstream "059c61d001fd32b4a1f5d3190e9c0d798570b4b3";
+    i3ipc-update = devel "i3ipc160";
   };
 }

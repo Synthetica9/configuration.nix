@@ -13,7 +13,7 @@ BUILD_SUPORT = "./build_support/"
 
 
 def getBuildCommand(configFile):
-    return "nix build --keep-going -f <nixpkgs/nixos> -I".split() + [f"nixos-config={configFile}", "system"]
+    return "nix build --show-trace --keep-going -f <nixpkgs/nixos> -I".split() + [f"nixos-config={configFile}", "system"]
 
 
 def getMachines():
