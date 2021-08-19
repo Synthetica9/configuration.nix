@@ -25,9 +25,12 @@ in {
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # Select internationalisation properties.
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_GB.UTF-8";
   };
 
@@ -38,5 +41,5 @@ in {
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 }

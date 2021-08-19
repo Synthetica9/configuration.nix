@@ -29,13 +29,14 @@
     mode = "444";
   };
 
-    # https://github.com/dlukes/dotfiles/blob/master/configuration.nix#L323
+  # https://github.com/dlukes/dotfiles/blob/master/configuration.nix#L323
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       corefonts # Microsoft free fonts
       dejavu_fonts
+      symbola
       emojione
       fira-code
       iosevka
@@ -47,15 +48,16 @@
     ];
     fontconfig = {
       defaultFonts = {
-        sansSerif = ["Ubuntu"];
-        monospace = ["Fira Code"];
+        sansSerif = [ "Ubuntu" ];
+        monospace = [ "Fira Code" ];
+        emoji = [ "Noto Sans Emoji" ];
       };
 
-      ultimate.enable = true;
+      # ultimate.enable = true;
     };
   };
 
-    # GTK2 global theme (widget and icon theme)
+  # GTK2 global theme (widget and icon theme)
   environment.etc."gtk-2.0/gtkrc" = {
     text = ''
       gtk-theme-name="Arc-Dark"

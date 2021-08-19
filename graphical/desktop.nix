@@ -7,30 +7,13 @@
       autorun = false;
       layout = "us";
       xkbOptions = "eurosign:e, ctrl:swapcaps";
-      # Enable touchpad support.
-      libinput = {
-        enable = true;
-        naturalScrolling = true;
-      };
 
-
-      # displayManager.sddm.enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        background = builtins.fetchurl {
-          url = "https://unsplash.com/photos/KqVHRmHVwwM/download?force=true";
-          sha256 = "1gk8zd57qi31qpp8kj04hgjwp4mrz5bwfpqxzksfsg6jrrmx22cn";
-        };
-      };
-
-      desktopManager.xterm.enable = false;
-      windowManager.i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
-      };
+      # displayManager.lightdm.enable = pkgs.lib.mkForce false;
+      # displayManager.lightdm.greeters.gtk.enable = pkgs.lib.mkForce false;
+      # displayManager.job.execCmd = "${pkgs.coreutils}/bin/false";
 
       desktopManager.xfce = {
-        enable = true;
+        # enable = true;
         thunarPlugins = with pkgs.xfce; [
           thunar-archive-plugin
           thunar_volman
@@ -41,92 +24,47 @@
         # daemon).";
         noDesktop = true;
       };
-    };
 
-    redshift = {
-      enable = true;
-      latitude = "52";
-      longitude = "5";
-      temperature = {
-        day = 6500;
-        night = 3700;
-      };
-    };
-
-    compton = {
-      enable = true;
-      inactiveOpacity = "0.90";
-      fade = true;
-      fadeDelta = 3;
-      opacityRules = [
-        "50:name = 'i3lock'"
-        "99:class_g = 'Firefox'"
-        "99:class_g = 'Gnome-mpv'"
-      ];
-    };
-    gnome3.gvfs.enable=true;
-    davfs2.enable=true;
-    tlp.enable=true;
-    printing.enable = true;
-  };
-
-  systemd.user.services = {
-    "auto_brightness" = {
-      enable = true;
-      description = "Auto brightness adjustment";
-      wantedBy = [ "multi-user.target" "sleep.target" ];
-      after = [ "supend.target" ];
-      path = [ pkgs.python3 pkgs.xorg.xbacklight ];
-      environment = {
-        PYTHONPATH = "${pkgs.python36Packages.ephem}/lib/python3.6/site-packages/";
-      };
-
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.python3}/bin/python /home/synthetica/bin/auto_brightness"; # TODO: make this a package?
-        User="synthetica";
-        # ExecStart = "${pkgs.python3}/bin/python -c 'import sys; print(sys.path)'";
-      };
+      # desktopManager.gnome = { enable = true; };
+      # desktopManager.plasma5.enable = true;
     };
   };
+  programs.sway.enable = true;
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-wlr ];
+  xdg.portal.enable = true;
 
   environment.systemPackages = with pkgs; [
     albert
-    pavucontrol
-    arc-theme
+    compton
     feh
-    fontconfig-ultimate
     gksu
     gnome2.gnome_icon_theme
     gnome3.adwaita-icon-theme
     gnome3.file-roller
-    gtk-engine-murrine
-    gtk_engines
+    grim
     gvfs
-    # gvfs-samba
     i3-wk-switch
-    swaylock
     i3status
-    kdeFrameworks.networkmanager-qt
+    libinput-gestures
+    mako
     networkmanagerapplet
     notify-desktop
     numix-cursor-theme
-    compton
+    pavucontrol
     playerctl
+    pywal
     redshift
-    xdotool
-    # xfce.xfce4notifyd
-    xfce.xfce4settings
-    xfce.xfce4volumed
-    mako
+    rofi
+    swaylock
+    sway-contrib.inactive-windows-transparency
+    sxiv
+    waybar
     wl-clipboard
-    grim
+    xclip
+    wmfocus
     xorg.xbacklight
     xorg.xrefresh
     xss-lock
-    rofi
-    xclip
-    # wmfocus
   ];
 
   environment.variables.GIO_EXTRA_MODULES = [ "${pkgs.gvfs}/lib/gio/modules" ];

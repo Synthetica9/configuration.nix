@@ -3,6 +3,7 @@
 {
   imports = [
     ../workstation
+    # ../home
 
     ./vscode.nix
     ./theming.nix
@@ -10,5 +11,6 @@
     ./packages.nix
     ./audio.nix
     ./moz_overlay.nix
+    # ./gnome.nix
   ];
 }

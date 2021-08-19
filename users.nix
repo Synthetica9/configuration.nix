@@ -1,42 +1,40 @@
-{ ... }:
-{
+{ ... }: {
   users.extraUsers = {
     synthetica = {
       isNormalUser = true;
       uid = 1000;
       extraGroups = [
-        "wheel" "networkmanager"
+        "wheel"
+        "networkmanager"
         "nm-openvpn"
-        "tty" "dialout" # For arduino
+        "tty"
+        "dialout" # For arduino
         "davfs2"
         "docker"
         "wireshark"
         "fuse" # for sshfs
         "audio"
+        "input" # for libinput-gestures
         "sway"
         "video"
+        "libvirtd"
+        "vboxuser"
       ];
     };
   };
 
-  nix = {
-    trustedUsers = [ "root" "synthetica" ];
-  };
+  nix = { trustedUsers = [ "root" "synthetica" ]; };
 
-  security.pam.loginLimits = [
-    {
-      domain = "*";
-      type   = "hard";
-      item   = "nofile";
-      value  = "16384";
-    }
-  ];
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "hard";
+    item = "nofile";
+    value = "16384";
+  }];
 
+  hardware.opengl = { driSupport = true; };
 
-  hardware.opengl = {
-    driSupport = true;
-  };
-
-  virtualisation.virtualbox.host.enable = false;
-  virtualisation.docker.enable = false;
+  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
 }

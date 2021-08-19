@@ -3,13 +3,14 @@
 {
   imports = [
     ./overrides.nix
-    ./remotes.nix
+    # ./remotes.nix
     ./buildFlags.nix
     ./options.nix
     ./nix.nix
     ./networking.nix
     ./kernel.nix
     ./boot.nix
+    ./unmaintained.nix
     ../channels
   ];
 }

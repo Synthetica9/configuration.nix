@@ -1,34 +1,42 @@
-{pkgs, config, ...}:
-{
+{ pkgs, config, ... }: {
   programs.wireshark = {
     package = pkgs.wireshark-qt;
     enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    pkgs.nixos-current.libreoffice-fresh
-    blender
+    # blender
+    # darktable
+    exiftool
+    gimp
+    gnuplot
     gparted
+    hopper
+    inkscape
     keepassxc
-    scribus
+    # konsole
+    alacritty
+    # firefox
+    latest.firefox-bin
+    libreoffice-fresh
+    megasync
+    pdfpc
+    qbittorrent
+    transmission_remote_gtk
     qt5.qtwayland
-    konsole
-    steam-fix.steam
-    steam-fix.steam-run-native
-    nixos-current.virtualbox
-    xfce.thunar
-    xfce.thunar_volman
+    # plex-media-player
+    plexamp
+    pulseeffects-legacy
+    # scribus
     spotify
     vlc
-    # latest.firefox-nightly-bin
-    latest.firefox-bin
-    qbittorrent
-    exiftool
-    darktable
-    gimp
-    inkscape
-    pkgs.nixos-current.octaveFull
-    pkgs.gnuplot
+    # virtualbox
+    xfce.thunar
+    # calibre
     zathura
+    piper
   ];
+
+  # services.spotifyd.enable = true;
+  services.ratbagd.enable = true;
 }

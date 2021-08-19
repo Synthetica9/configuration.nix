@@ -4,8 +4,10 @@
   imports = [
     ../generic
 
+    #    ./hie.nix
     ./packages.nix
     ./sudo_lecture.nix
+    ./typesetting.nix
   ];
 
   security.sudo.extraConfig = ''
@@ -14,5 +16,5 @@
 
   # qemu-user.arm = true;
 
-  boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

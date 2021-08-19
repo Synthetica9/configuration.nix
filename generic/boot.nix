@@ -1,10 +1,14 @@
-{ ... }:
-{
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      editor = false;
+{ ... }: {
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        editor = false;
+      };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
+
+    # crashDump.enable = true;
+    plymouth.enable = true;
   };
 }
